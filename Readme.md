@@ -24,5 +24,5 @@ A Pokémon statistics Discord bot with the intended purpose of displaying statis
 |Other Commands |                          |                                                                            |
 |               |                          |                                                                            |
 | `%addcommand` |                          | I wouldn't type this if I were you                                         |
-| `nexusz?`     |                          | Is this the real Nexus-Z?                                                  |
+| `%nexusz?`     |                          | Is this the real Nexus-Z?                                                  |
 |               |                          |                                                                            |
