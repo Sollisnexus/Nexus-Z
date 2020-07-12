@@ -14,9 +14,9 @@ A Pokémon statistics Discord bot with the intended purpose of displaying statis
 
 | Command       | Arguments                | Descrition                                                                 |
 |---------------|--------------------------|----------------------------------------------------------------------------|
-| `%catch`      | `[Pokémon] (Form) (Ball)`| Shows a detailed summary of catch rates for a given Pokémon & Ball         |
+| `%catch`      | `(Form) [Pokémon] (Ball)`| Shows a detailed summary of catch rates for a given Pokémon & Ball         |
 | `%den`        | `[Den #] / [Pokémon]`    | Shows a list of Pokémon that belong to a den including their HAs           |
-| `%pokedex`    | `[Pokémon]`              | Shows a detailed summary of a Pokémon's latest Statistics (Gen 8 / Gen 7)  |
+| `%pokedex`    | `(Form) [Pokémon]`       | Shows a detailed summary of a Pokémon's latest Statistics (Gen 8 / Gen 7)  |
 | `%ball`       | `[Ball]`                 | Shows a summary of a Poké-Ball's statistics                                |
 | `%natures`    |                          | Displays an in-depth Pokémon natures chart from Bulbapedia                 |
 | `%help`       |                          | Displays a help message with this table of commands                        |
