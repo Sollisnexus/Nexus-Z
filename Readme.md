@@ -20,3 +20,9 @@ A Pokémon statistics Discord bot with the intended purpose of displaying statis
 | `%ball`       | `[Ball]`                 | Shows a summary of a Poké-Ball's statistics                                |
 | `%natures`    |                          | Displays an in-depth Pokémon natures chart from Bulbapedia                 |
 | `%help`       |                          | Displays a help message with this table of commands                        |
+|               |                          |                                                                            |
+|Other Commands |                          |                                                                            |
+|               |                          |                                                                            |
+| `%addcommand` |                          | I wouldn't type this if I were you                                         |
+| `nexusz?`     |                          | Is this the real Nexus-Z?                                                  |
+|               |                          |                                                                            |
