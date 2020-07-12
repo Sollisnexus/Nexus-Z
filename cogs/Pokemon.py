@@ -3873,7 +3873,8 @@ def main(pokename, ballType):
     Mostone = 0
     types = ''
     
-    fileOpen = open('E:/bulbapedia_data.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/bulbapedia_data.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4082,7 +4083,8 @@ def alolanmain(pokename, ballType):
     Mostone = 0
     types = ''
     
-    fileOpen = open('E:/Alolan.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/Alolan.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4291,7 +4293,8 @@ def galarianmain(pokename, ballType):
     Mostone = 0
     types = ''
     
-    fileOpen = open('E:/galariandata.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/galariandata.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4500,7 +4503,8 @@ def gmaxmain(pokename, ballType):
     Mostone = 0
     types = ''
     
-    fileOpen = open('E:/bulbapedia_data.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/bulbapedia_data.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4751,7 +4755,8 @@ def pokedex(pokename):
     SwDens = ''
     ShDens = ''
     
-    fileOpen = open('E:/bulbapedia_data.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/bulbapedia_data.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4890,7 +4895,8 @@ def alolanpokedex(pokename):
     SwDens = ''
     ShDens = ''
 
-    fileOpen = open('E:/Alolan.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/Alolan.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -5029,7 +5035,8 @@ def galarianpokedex(pokename):
     SwDens = ''
     ShDens = ''
 
-    fileOpen = open('E:/galariandata.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/galariandata.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -5149,8 +5156,8 @@ def ball(ballName):
     Condition = ''
     Addeffect = ''
 
-    
-    fileOpen = open('E:/pokeballdata.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/pokeballdata.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -5167,7 +5174,8 @@ def dennumber(dennum):
     IoA = ''
     TCT = ''
     
-    fileOpen = open('E:/NumDen.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/NumDen.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for Den in row:
@@ -5186,7 +5194,8 @@ def denname(dennamez):
     Swnonha = ''
     Shnonha = ''
     
-    fileOpen = open('E:/Denpokename.csv', newline='')
+    #link to this file      V
+    fileOpen = open('/Denpokename.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for Name in row:
