@@ -207,7 +207,7 @@ class Pokemon(commands.Cog):
                     GName = string.capwords(content[2])
                     Listofgmax = ["Venusaur","Charizard","Blastoise","Butterfree","Pikachu","Meowth","Machamp","Gengar","Kingler","Lapras","Eevee","Snorlax","Garbodor",
                                   "Melmetal","Rillaboom","Cinderace","Inteleon","Corviknight","Orbeetle","Drednaw","Coalossal","Flapple","Appletun","Sandaconda","Toxtricity",
-                                  "Centiskorch", "Hatterene","Grimmsnarl","Alcreamie","Copperajah","Duraludon","Urshifu"]
+                                  "Centiskorch", "Hatterene","Grimmsnarl","Alcremie","Copperajah","Duraludon","Urshifu"]
                     if GName in Listofgmax:
                         msg = gmaxmain(str(GName), str("pokeball"))
                         msg1= gmaxmain(str(GName), str("greatball"))
