@@ -24,10 +24,5 @@ class Replies(commands.Cog):
         embed.set_image(url="https://thumbs.gfycat.com/RegularInnocentBug-size_restricted.gif")
         await ctx.send(embed=embed)
     
-    @commands.command(name='blaines')
-    async def blaines(self, ctx):
-        await ctx.message.delete()
-        await ctx.send("Who?")
-    
 def setup(client):
     client.add_cog(Replies(client))
