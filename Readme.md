@@ -4,7 +4,7 @@
 <br>
 [<img src="https://img.shields.io/badge/discord.py-rewrite-blue.svg?style=flat-square">](https://github.com/Rapptz/discord.py/tree/rewrite)
 [<img src="https://img.shields.io/badge/python-3.8.2-brightgreen.svg?style=flat-square">](https://www.python.org/downloads/release/python-382/)
-[<img src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square">](https://github.com/lyricalpaws/PyBot/blob/master/LICENSE)
+[<img src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square">](https://github.com/Sollisnexus/Nexus-Z/blob/master/LICENSE)
 
 
 # Nexus-Z Discord Bot
