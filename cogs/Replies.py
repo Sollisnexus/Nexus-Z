@@ -1,4 +1,6 @@
 import discord
+import asyncio
+import threading
 from discord.ext import commands
 
 class Replies(commands.Cog):
@@ -23,6 +25,11 @@ class Replies(commands.Cog):
         embed = discord.Embed(title="", description="", color=0x2962FF)
         embed.set_image(url="https://thumbs.gfycat.com/RegularInnocentBug-size_restricted.gif")
         await ctx.send(embed=embed)
+    
+    @commands.command(name='blaines')
+    async def blaines(self, ctx):
+        await ctx.author.message.delete()
+        await ctx.send("Who?")
     
 def setup(client):
     client.add_cog(Replies(client))

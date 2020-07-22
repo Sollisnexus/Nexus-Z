@@ -3,6 +3,8 @@ import string
 import math
 import csv
 import os
+import asyncio
+import threading
 from discord.ext import commands
 
 class Pokemon(commands.Cog):
@@ -81,7 +83,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Alolan/Shiny/"+GaName+".png")
                             embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                     else:
                         await ctx.send('This Alolan Pokémon does not exist!')       
@@ -140,7 +142,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Galarian/Shiny/Mrmime.png")
                             embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif GlName != "Mr":
                             msg = galarianmain(str(GlName), str("pokeball"))
@@ -192,14 +194,14 @@ class Pokemon(commands.Cog):
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Galarian/Shiny/"+GlfName+".png")
                                 embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                             else:
                                 embed = discord.Embed(title= "Galarian " + GlName + "'s Capture Odds", description="", color=0x2962FF)
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Galarian/Shiny/"+GlName+".png")
                                 embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                     else:
                         await ctx.send('This Galarian Pokémon does not exist!')       
@@ -256,7 +258,7 @@ class Pokemon(commands.Cog):
                         embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Gmax/Shiny/"+GName+".png")
                         embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                         embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     else:
                         await ctx.send('This Gmax Pokémon does not exist!')
@@ -315,7 +317,7 @@ class Pokemon(commands.Cog):
                         embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/Mrmime.png")
                         embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                         embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif Name == "Mime":
                         RName = "Mimejr"
@@ -366,7 +368,7 @@ class Pokemon(commands.Cog):
                         embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/Mimejr.png")
                         embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                         embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif Name == "Type:":
                         TName = "Type-null"
@@ -417,7 +419,7 @@ class Pokemon(commands.Cog):
                         embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+TName+".png")
                         embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                         embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif Name == "Nidoranf":
                         msg = main(str(Name), str("pokeball"))
@@ -467,7 +469,7 @@ class Pokemon(commands.Cog):
                         embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Name+".png")
                         embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                         embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif Name == "Nidoranm":
                         msg = main(str(Name), str("pokeball"))
@@ -517,7 +519,7 @@ class Pokemon(commands.Cog):
                         embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Name+".png")
                         embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                         embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     else:
                         msg = main(str(Name), str("pokeball")) 
@@ -572,14 +574,14 @@ class Pokemon(commands.Cog):
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Mfame+".png")
                                 embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                             else:
                                 embed = discord.Embed(title= Name + "'s Capture Odds", description="", color=0x2962FF)
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Name+".png")
                                 embed.add_field(name= "Ball Type", value=msga+"\n"+msg1a+"\n"+msg2a+"\n"+msg3a+"\n"+msg4a+"\n"+msg5a+"\n"+msg6a+"\n"+msg7a+"\n", inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n" + msg1b+"% - "+msg1c+"%\n" + msg2b+"% - "+msg2c+"%\n" + msg3b+"% - "+msg3c+"%\n" + msg4b+"% - "+msg4c+"%\n" + msg5b+"% - "+msg5c+"%\n" + msg6b+"% - "+msg6c+"%\n" + msg7b+"% - "+msg7c+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
             else:
                 Ballist = ["Pokeball","Greatball","Ultraball","Masterball","Safariball","Fastball","Levelball","Lureball","Heavyball","Loveball","Friendball","Moonball",
@@ -605,7 +607,7 @@ class Pokemon(commands.Cog):
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Alolan/Shiny/"+GaName+".png")
                                 embed.add_field(name= "Ball Type", value=msga, inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                             elif Ball not in Ballist:
                                 await ctx.send("This Pokeball doesn't exist")
@@ -629,7 +631,7 @@ class Pokemon(commands.Cog):
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Galarian/Shiny/Mrmime.png")
                                 embed.add_field(name= "Ball Type", value=msga, inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                             elif Ball not in Ballist:
                                 await ctx.send("This Pokeball doesn't exist")
@@ -647,14 +649,14 @@ class Pokemon(commands.Cog):
                                     embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Galarian/Shiny/"+GlfName+".png")
                                     embed.add_field(name= "Ball Type", value=msga, inline=True)
                                     embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                    await ctx.message.delete()
+                                    await ctx.author.message.delete()
                                     await ctx.send(embed=embed)
                                 else:
                                     embed = discord.Embed(title= "Galarian " + GlName + "'s Capture Odds", description="", color=0x2962FF)
                                     embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Galarian/Shiny/"+GlName+".png")
                                     embed.add_field(name= "Ball Type", value=msga, inline=True)
                                     embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                    await ctx.message.delete()
+                                    await ctx.author.message.delete()
                                     await ctx.send(embed=embed)
                             elif Ball not in Ballist:
                                 ctx.send("This Pokeball doesn't exist")
@@ -677,7 +679,7 @@ class Pokemon(commands.Cog):
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Gmax/Shiny/"+GName+".png")
                                 embed.add_field(name= "Ball Type", value=msga, inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                             else:
                                 msg = gmaxmain(str(GName), str(Ball))
@@ -688,7 +690,7 @@ class Pokemon(commands.Cog):
                                 embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Gmax/Shiny/"+GName+".png")
                                 embed.add_field(name= "Ball Type", value=msga, inline=True)
                                 embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -712,7 +714,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+RName+".png")
                             embed.add_field(name= "Ball Type", value=msga, inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -728,7 +730,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/Mimejr.png")
                             embed.add_field(name= "Ball Type", value=msga, inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -744,7 +746,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+TName+".png")
                             embed.add_field(name= "Ball Type", value=msga, inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -758,7 +760,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Name+".png")
                             embed.add_field(name= "Ball Type", value=msga, inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -772,7 +774,7 @@ class Pokemon(commands.Cog):
                             embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Name+".png")
                             embed.add_field(name= "Ball Type", value=msga, inline=True)
                             embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -791,14 +793,14 @@ class Pokemon(commands.Cog):
                                     embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Mfame+".png")
                                     embed.add_field(name= "Ball Type", value=msga, inline=True)
                                     embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                    await ctx.message.delete()
+                                    await ctx.author.message.delete()
                                     await ctx.send(embed=embed)
                                 else:
                                     embed = discord.Embed(title= Name + "'s Capture Odds", description="", color=0x2962FF)
                                     embed.set_thumbnail(url= "https://raw.githubusercontent.com/Sollisnexus/Nexus-Z/master/PokemonImages/Shiny/"+Name+".png")
                                     embed.add_field(name= "Ball Type", value=msga, inline=True)
                                     embed.add_field(name="Odds", value=msgb+"% - "+msgc+"%\n", inline=True)
-                                    await ctx.message.delete()
+                                    await ctx.author.message.delete()
                                     await ctx.send(embed=embed)
                         elif Ball not in Ballist:
                             await ctx.send("This Pokeball Doesn't exist")
@@ -848,7 +850,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 else:
                     await ctx.send('This Alolan Pokémon does not exist')          
@@ -891,7 +893,7 @@ class Pokemon(commands.Cog):
                         embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                         embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                         embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif GlName != "Mr":                       
                         if GlName== "Darmanitan":  
@@ -926,7 +928,7 @@ class Pokemon(commands.Cog):
                                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                                    await ctx.message.delete()
+                                    await ctx.author.message.delete()
                                     await ctx.send(embed=embed)
 
                                     GzzName = "Darmanitanzen"
@@ -995,7 +997,7 @@ class Pokemon(commands.Cog):
                                 embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                                 embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                                 embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
                             else:
                                 embed = discord.Embed(title= a + "   " + Name + " " + GlName + "   " + c , description="", color=0x2962FF)
@@ -1005,7 +1007,7 @@ class Pokemon(commands.Cog):
                                 embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                                 embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                                 embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                                await ctx.message.delete()
+                                await ctx.author.message.delete()
                                 await ctx.send(embed=embed)
 
                     else:
@@ -1044,7 +1046,7 @@ class Pokemon(commands.Cog):
                         embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                         embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                         embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif content[2] == 'rime':
                         RRName = "Mrrime"
@@ -1078,7 +1080,7 @@ class Pokemon(commands.Cog):
                         embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                         embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                         embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                 if Name == "Mime":
                     RName = "Mimejr"
@@ -1113,7 +1115,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 elif Name == "Type:":
                     TName = "Type-null"
@@ -1148,7 +1150,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)   
                 elif Name == "Nidoranf":
                     result = pokedex(str(Name))
@@ -1182,7 +1184,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 elif Name == "Nidoranm":
                     result = pokedex(str(Name))
@@ -1216,7 +1218,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 elif Name== "Darmanitan":  
                     result = pokedex(str(Name))
@@ -1249,7 +1251,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Darmanitanzen"
@@ -1315,7 +1317,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Wormadams"
@@ -1414,7 +1416,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Kyogreprimal"
@@ -1480,7 +1482,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Groudonprimal"
@@ -1546,7 +1548,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                     
                     GzzName = "Adeoxys"
@@ -1678,7 +1680,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Hrotom"
@@ -1876,7 +1878,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Ogiratina"
@@ -1942,7 +1944,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Sshaymin"
@@ -2008,7 +2010,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Ttornadus"
@@ -2074,7 +2076,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Tthundurus"
@@ -2140,7 +2142,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Tlandorus"
@@ -2206,7 +2208,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Blackkyurem"
@@ -2305,7 +2307,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Pmeloetta"
@@ -2371,7 +2373,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Ashgreninja"
@@ -2437,7 +2439,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Baegislash"
@@ -2472,8 +2474,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Dens", value="Sword: "+ u1 +"\nShield: " + v1, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
                     await ctx.send(embed=embed)                
-                elif Name == "Pumpkaboo":
-                    
+                elif Name == "Pumpkaboo":                    
                     GzzaName = "Tpumpkaboo"
                     result = pokedex(str(GzzaName))
                     a1 = str(result[0])
@@ -2505,7 +2506,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l1+"**\nAbility 2: \n**"+m1+"**\nHidden Ability: \n**" + n1 +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u1 +"\nShield: " + v1, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()                    
+                    await ctx.author.message.delete()                    
                     await ctx.send(embed=embed)                    
                     
                     result = pokedex(str(Name))
@@ -2637,7 +2638,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l1+"**\nAbility 2: \n**"+m1+"**\nHidden Ability: \n**" + n1 +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u1 +"\nShield: " + v1, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     result = pokedex(str(Name))
@@ -2768,7 +2769,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Tzygarde"
@@ -2867,7 +2868,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Uhoopa"
@@ -2933,7 +2934,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Mlycanroc"
@@ -3032,7 +3033,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Swishiwashi"
@@ -3098,7 +3099,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Dmnecrozma"
@@ -3230,7 +3231,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Neiscue"
@@ -3296,7 +3297,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Czacian"
@@ -3362,7 +3363,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Czamazenta"
@@ -3428,7 +3429,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                     embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
                     GzzName = "Rurshifu"
@@ -3466,7 +3467,7 @@ class Pokemon(commands.Cog):
                 else: 
                     result = pokedex(str(Name))
                     if result == None:
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send('This Pokémon does not exist!')
                     elif result != None: 
                         a = str(result[0])
@@ -3499,7 +3500,7 @@ class Pokemon(commands.Cog):
                         embed.add_field(name="Abilites", value="Ability 1: \n**" +l+"**\nAbility 2: \n**"+m+"**\nHidden Ability: \n**" + n +"**", inline=True)
                         embed.add_field(name="Dens", value="Sword: "+ u +"\nShield: " + v, inline=False)
                         embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
 
     @commands.command(name ='natures', help='Shows a chart of Pokemon natures')
@@ -3509,7 +3510,7 @@ class Pokemon(commands.Cog):
             embed = discord.Embed(title="", description="", color=0x2962FF)
             embed.set_image(url="https://static2.thegamerimages.com/wordpress/wp-content/uploads/2019/04/Nature-Charrt-via-Bulbapedia.jpg?")
             embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-            await ctx.message.delete()
+            await ctx.author.message.delete()
             await ctx.send(embed=embed)
 
     @commands.command(name ='ball', help='Looks up information on Pokeballs')                   
@@ -3534,13 +3535,13 @@ class Pokemon(commands.Cog):
                 if baln == "Cherish":
                     embed.set_image(url="https://media2.giphy.com/media/jnEBXaTewyLpqIttNi/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                     
                 elif baln == "Premier":
                     embed.set_image(url="https://media0.giphy.com/media/RISohRZRfEQ4sJFZvw/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
 
             elif BName.startswith("Friend") or BName.startswith("Luxury") or BName.startswith("Master") or BName.startswith("Repeat") or BName.startswith("Safari") or BName.startswith("Sports"):
@@ -3559,37 +3560,37 @@ class Pokemon(commands.Cog):
                 if baln == "Friend":
                     embed.set_image(url="https://media0.giphy.com/media/f7Yl1vFzJqAudkJLTZ/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                     
                 elif baln == "Luxury":
                     embed.set_image(url="https://media0.giphy.com/media/l29PJ0F8w8tvqPOZsn/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Master":
                     embed.set_image(url="https://media0.giphy.com/media/ggKzsZLL9d3xv6gsaQ/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                     
                 elif baln == "Repeat":
                     embed.set_image(url="https://media2.giphy.com/media/lrzfd4lZI8BdWdJVHw/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Safari":
                     embed.set_image(url="https://media2.giphy.com/media/ihYy3vbNBdSZ12oPFv/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Sports":
                     embed.set_image(url="https://media1.giphy.com/media/ihSCEcioiNza0EkPJ8/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                     
             elif BName.startswith("Beast") or BName.startswith("Dream") or BName.startswith("Great") or BName.startswith("Heavy") or BName.startswith("Level") or BName.startswith("Quick") or BName.startswith("Timer") or BName.startswith("Ultra"):
@@ -3608,49 +3609,49 @@ class Pokemon(commands.Cog):
                 if baln == "Beast":
                     embed.set_image(url="https://media0.giphy.com/media/Q8UsFRwVcAxBnXNo8q/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                     
                 if baln == "Dream":
                     embed.set_image(url="https://media3.giphy.com/media/cMbaN5Pxe6ZX1RZmhV/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)                
                 
                 if baln == "Great":
                     embed.set_image(url="https://media0.giphy.com/media/J4h1EfSfBSDqQYqGs5/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)                
                 
                 if baln == "Heavy":
                     embed.set_image(url="https://media2.giphy.com/media/kDYfi0nctLKmrTjAVQ/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)                
                 
                 if baln == "Level":
                     embed.set_image(url="https://media0.giphy.com/media/MESCIFEPTDOHtiDAN9/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)                
                 
                 if baln == "Quick":
                     embed.set_image(url="https://media3.giphy.com/media/Sw0njjABoq2RwdZ021/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)                
                 
                 if baln == "Timer":
                     embed.set_image(url="https://media2.giphy.com/media/YonSDJD7IqH5ZR6Rty/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                                
                 if baln == "Ultra":
                     embed.set_image(url="https://media2.giphy.com/media/kcUFH2HoOL2sVqAc0u/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                                                
             elif BName.startswith("Dive") or BName.startswith("Dusk") or BName.startswith("Fast") or BName.startswith("Heal") or BName.startswith("Love") or BName.startswith("Lure") or BName.startswith("Moon") or BName.startswith("Nest") or BName.startswith("Poke"):
@@ -3669,55 +3670,55 @@ class Pokemon(commands.Cog):
                 if baln == "Dive":
                     embed.set_image(url="https://media1.giphy.com/media/Q5M0qlYbqWlhvK34H4/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Dusk":
                     embed.set_image(url="https://media2.giphy.com/media/dUT8l6lgavNTVdAk9V/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Fast":
                     embed.set_image(url="https://media2.giphy.com/media/VdKewUvAPbzGrsIpC3/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Heal":
                     embed.set_image(url="https://media2.giphy.com/media/gj5rnzcbdiKaugdDJ1/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Love":
                     embed.set_image(url="https://media0.giphy.com/media/WrTdRwsteoMFjtyak5/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Lure":
                     embed.set_image(url="https://media2.giphy.com/media/eJGGUpd33e4FAQFetJ/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Moon":
                     embed.set_image(url="https://media0.giphy.com/media/Pns9GA5WRrMKBib3Ns/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Nest":
                     embed.set_image(url="https://media0.giphy.com/media/VJwZtnk8eBBwddOBpJ/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
                 
                 elif baln == "Poke":
                     embed.set_image(url="https://media3.giphy.com/media/YMSzuD6AtcUWC7Ejvv/giphy.gif")
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
             
             elif BName.startswith("Net"):
@@ -3734,7 +3735,7 @@ class Pokemon(commands.Cog):
                 embed.add_field(name= "**Info:**", value="**Ball Modifier**: `"+b1+"`\n**Ball Conditions**: `"+b2+"`\n**Ball Effects**: `"+b3+"`", inline=True)
                 embed.set_image(url="https://media3.giphy.com/media/iJhvFRLVMXNk7tJzVC/giphy.gif")
                 embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                await ctx.message.delete()
+                await ctx.author.message.delete()
                 await ctx.send(embed=embed) 
  
             else:
@@ -3765,7 +3766,7 @@ class Pokemon(commands.Cog):
                     embed.add_field(name="Shield HA:", value=shield, inline=True)
                     embed.add_field(name="Wild Area Location:", value="Wild Area: "+ MainD +"\nIsle of Armor: "+ IoAD +"\nThe Crown Tundra: " + TCTD + " ", inline=False)
                     embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                    await ctx.message.delete()
+                    await ctx.author.message.delete()
                     await ctx.send(embed=embed)
             elif res != True:
                 Gnm = Den
@@ -3782,7 +3783,7 @@ class Pokemon(commands.Cog):
                         embed.add_field(name="Sword:", value="Non-HA: "+SwNHA+"\nHA: "+ SwHA, inline=False)
                         embed.add_field(name="Shield:", value="Non-HA: " + ShNHA + "\nHA: "+ ShHA, inline=False)
                         embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                     elif Gnm == "Mr":
                         Gnm = Gnm + " " + content[2]
@@ -3798,7 +3799,7 @@ class Pokemon(commands.Cog):
                             embed.add_field(name="Sword:", value="Non-HA: "+SwNHA+"\nHA: "+ SwHA, inline=False)
                             embed.add_field(name="Shield:", value="Non-HA: " + ShNHA + "\nHA: "+ ShHA, inline=False)
                             embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                         elif Gnm == "Mr rime":
                             g = "Mrrime"
@@ -3812,7 +3813,7 @@ class Pokemon(commands.Cog):
                             embed.add_field(name="Sword:", value="Non-HA: "+SwNHA+"\nHA: "+ SwHA, inline=False)
                             embed.add_field(name="Shield:", value="Non-HA: " + ShNHA + "\nHA: "+ ShHA, inline=False)
                             embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                            await ctx.message.delete()
+                            await ctx.author.message.delete()
                             await ctx.send(embed=embed)
                 else:
                     if Den == "Mime":
@@ -3827,7 +3828,7 @@ class Pokemon(commands.Cog):
                         embed.add_field(name="Sword:", value="Non-HA: "+SwNHA+"\nHA: "+ SwHA, inline=False)
                         embed.add_field(name="Shield:", value="Non-HA: " + ShNHA + "\nHA: "+ ShHA, inline=False)
                         embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                        await ctx.message.delete()
+                        await ctx.author.message.delete()
                         await ctx.send(embed=embed)
                         
                     else:
@@ -3849,7 +3850,7 @@ class Pokemon(commands.Cog):
                           embed.add_field(name="Sword:", value="Non-HA: "+SwNHA+"\nHA: "+ SwHA, inline=False)
                           embed.add_field(name="Shield:", value="Non-HA: " + ShNHA + "\nHA: "+ ShHA, inline=False)
                           embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                          await ctx.message.delete()
+                          await ctx.author.message.delete()
                           await ctx.send(embed=embed)
                         elif Den not in Glr:
                           Den1 = Den
@@ -3858,7 +3859,7 @@ class Pokemon(commands.Cog):
                           embed.add_field(name="Sword:", value="Non-HA: "+SwNHA+"\nHA: "+ SwHA, inline=False)
                           embed.add_field(name="Shield:", value="Non-HA: " + ShNHA + "\nHA: "+ ShHA, inline=False)
                           embed.set_footer(text="Provided by Nexus-Z", icon_url="https://www.serebii.net/Shiny/SWSH/474.png")
-                          await ctx.message.delete()
+                          await ctx.author.message.delete()
                           await ctx.send(embed=embed)
                     
 def main(pokename, ballType):
@@ -3873,8 +3874,7 @@ def main(pokename, ballType):
     Mostone = 0
     types = ''
     
-    #link to this file      V
-    fileOpen = open('/bulbapedia_data.csv', newline='')
+    fileOpen = open('E:/bulbapedia_data.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4083,8 +4083,7 @@ def alolanmain(pokename, ballType):
     Mostone = 0
     types = ''
     
-    #link to this file      V
-    fileOpen = open('/Alolan.csv', newline='')
+    fileOpen = open('E:/Alolan.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4293,8 +4292,7 @@ def galarianmain(pokename, ballType):
     Mostone = 0
     types = ''
     
-    #link to this file      V
-    fileOpen = open('/galariandata.csv', newline='')
+    fileOpen = open('E:/galariandata.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4503,8 +4501,7 @@ def gmaxmain(pokename, ballType):
     Mostone = 0
     types = ''
     
-    #link to this file      V
-    fileOpen = open('/bulbapedia_data.csv', newline='')
+    fileOpen = open('E:/bulbapedia_data.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4755,8 +4752,7 @@ def pokedex(pokename):
     SwDens = ''
     ShDens = ''
     
-    #link to this file      V
-    fileOpen = open('/bulbapedia_data.csv', newline='')
+    fileOpen = open('E:/bulbapedia_data.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -4895,8 +4891,7 @@ def alolanpokedex(pokename):
     SwDens = ''
     ShDens = ''
 
-    #link to this file      V
-    fileOpen = open('/Alolan.csv', newline='')
+    fileOpen = open('E:/Alolan.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -5035,8 +5030,7 @@ def galarianpokedex(pokename):
     SwDens = ''
     ShDens = ''
 
-    #link to this file      V
-    fileOpen = open('/galariandata.csv', newline='')
+    fileOpen = open('E:/galariandata.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -5156,8 +5150,8 @@ def ball(ballName):
     Condition = ''
     Addeffect = ''
 
-    #link to this file      V
-    fileOpen = open('/pokeballdata.csv', newline='')
+    
+    fileOpen = open('E:/pokeballdata.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for name in row:
@@ -5174,8 +5168,7 @@ def dennumber(dennum):
     IoA = ''
     TCT = ''
     
-    #link to this file      V
-    fileOpen = open('/NumDen.csv', newline='')
+    fileOpen = open('E:/NumDen.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for Den in row:
@@ -5194,8 +5187,7 @@ def denname(dennamez):
     Swnonha = ''
     Shnonha = ''
     
-    #link to this file      V
-    fileOpen = open('/Denpokename.csv', newline='')
+    fileOpen = open('E:/Denpokename.csv', newline='')
     fileData = csv.reader(fileOpen)
     for row in fileData:
         for Name in row:

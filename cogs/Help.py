@@ -1,5 +1,7 @@
 import discord
 import time
+import asyncio
+import threading
 from discord.ext import commands
 
 emoji = '\N{Heavy Check Mark}'
@@ -22,7 +24,7 @@ class Help(commands.Cog):
         embed.add_field(name="Command:", value="`%catch <Pokemon> (pokeball)`\n`%catch (form) <Pokemon> (pokeball)`\n`%pokedex <Pokemon>`\n`%pokedex (form) <Pokemon>`\n`%natures`\n`%ball <name>`\n `%den <den#>/<Pokemon>`\n\n\n`%nexusz?`\n`%addcommand`" , inline=True)
         embed.add_field(name="Description:", value="`Returns catch rates`\n`Forms inc: Alolan, Galarian, Gmax`\n`Returns Pokemon entry`\n`Forms include: Alolan, Galarian `\n`Shows a chart of Pokemon Natures`\n`Displays Poke-ball info`\n`Searches for den by Number/Pokemon`\n\n\n`Is that the real Nexus-Z?`\n`I wouldn't type this if I were you...`" , inline=True)
         embed.add_field(name= "Notes:", value='Pokemon with alternate forms can be found in their original\nentry (i.e: `%pokedex kyogre` will also include its Primal.)\n\nWhen searching for pokeball capture, spell out the entire name \nof the pokeball (i.e `heavyball`)\n\n () is optional / <> is mandatory', inline = False)
-        await ctx.message.delete()
+        await ctx.author.message.delete()
         await ctx.send(embed=embed)
         
     @commands.command(name='modulehelp', help='Displays modules and module commands' )
@@ -33,13 +35,13 @@ class Help(commands.Cog):
         embed.add_field(name="Module Commands:", value="%help\n%load <module name>\n%unload <module name>\n%reload <module name>", inline=True)
         embed.add_field(name="Descriptions:", value="shows loaded modules and commands.\nLoads the selected module.\nUnload the selected module.\nReloads the selected Module.", inline=True)
         embed.add_field(name="Available Modules:", value="Pokemon\nPing\nHelp\nReplies", inline=False)
-        await ctx.message.delete()
+        await ctx.author.message.delete()
         await ctx.send(embed=embed)
 
     @commands.command()
     async def ping(self, ctx):
         """ Pong! (with Latency) """
-        await ctx.message.delete()
+        await ctx.author.message.delete()
         before = time.monotonic()
         message = await ctx.send("Pong!")
         ping = (time.monotonic() - before) * 1000
