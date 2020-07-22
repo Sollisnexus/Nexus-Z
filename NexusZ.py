@@ -13,7 +13,7 @@ client.remove_command('help')
 @commands.has_role('Owner')
 async def load(ctx, extension):
     Modulename = str(extension)
-    await ctx.message.delete()
+    await ctx.author.message.delete()
     client.load_extension(f'cogs.{extension}')    
     if commands.CommandInvokeError == True:
         return
@@ -24,7 +24,7 @@ async def load(ctx, extension):
 @commands.has_role('Owner')
 async def unload (ctx, extension):
     Modulename = str(extension)
-    await ctx.message.delete()
+    await ctx.author.message.delete()
     client.unload_extension(f'cogs.{extension}') 
     if commands.CommandInvokeError == True:
         return
@@ -35,7 +35,7 @@ async def unload (ctx, extension):
 @commands.has_role('Owner')
 async def reload(ctx, extension):
     Modulename = str(extension)
-    await ctx.message.delete()
+    await ctx.author.message.delete()
     client.unload_extension(f'cogs.{extension}')
     if commands.CommandInvokeError == True:
         return
@@ -67,7 +67,7 @@ async def on_command_error(ctx, error):
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
-        await ctx.message.delete()
+        await ctx.author.message.delete()
         await ctx.send('This command is unloaded or does not exist!')
 
 @client.event
