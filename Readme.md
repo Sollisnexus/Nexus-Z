@@ -15,6 +15,7 @@
 <br>
 This Project uses the rewrite version of discord.py as well as Python 3.8.2. Please keep this in mind when using the bot.	
 <br>
+<br>
 A Pokemon Statistics Discord bot for the use of calculating catch statistics for Max Raid Battles within Pokemon Sword and Shield (including Isle of Armor and The Crown Tundra)
 <br>
 
