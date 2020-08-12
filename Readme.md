@@ -183,7 +183,7 @@ I'll leave these for you to find out as to not spoil them (SFW)
 <br>
 <code class="language-plaintext highlighter-rouge">%gorocket cliff</code>
 <br>
-<img src="https://raw.githubusercontent.com/Sollisnexus/Sollisnexus.github.io/master/NexusZ/cliffexample.png" alt="%gorocket example">
+<img src="https://raw.githubusercontent.com/Sollisnexus/Sollisnexus.github.io/master/NexusZ/cliffexample3.png" alt="%gorocket example">
 <br>
 <br>
 	
