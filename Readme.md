@@ -21,12 +21,14 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 
 <h2>Discord Statistics & Top.gg</h2>
 
-W.I.P Will be added soon as verification occurs
+<a href="https://top.gg/bot/674716932720558101" >
+  <img src="https://top.gg/api/widget/674716932720558101.svg" alt="Nexus-Z" />
+</a>
 
 <h2>Features</h2>
 <ul>
 	<li>Quick and easy access to the latest Pokemon Data, such as Base Stats / Abilities / Den Locations/ And More!
-	<li>Accurately tuned catch rate calcuatlor for Pokemon encountered in Max Raid Battles
+	<li>Accurately tuned catch rate calculator for Pokemon encountered in Max Raid Battles
 	<li>Effiecent and fully detailed information for den look-up including Hidden Ability availability
 </ul>
 <br>
@@ -70,7 +72,7 @@ W.I.P Will be added soon as verification occurs
 		<td>Displays an in-depth Pokémon natures chart from Bulbapedia</td>
 	</tr>
 <tr>
-		<td><code class="language-plaintext highlighter-rouge">>help</code></td>
+		<td><code class="language-plaintext highlighter-rouge"><>help</code></td>
 		<td><code class="language-plaintext highlighter-rouge"></code></td>
 		<td>Displays a help message with a table of commands</td>
 	</tr>
@@ -127,7 +129,7 @@ W.I.P Will be added soon as verification occurs
 		<td>I wouldn't type this if I were you...</td>
 	</tr>
 	<tr>
-		<td><code class="language-plaintext highlighter-rouge">%nexuz?</code></td>
+		<td><code class="language-plaintext highlighter-rouge">%nexusz?</code></td>
 		<td><code class="language-plaintext highlighter-rouge"></code></td>
 		<td>Is this the real Nexus-Z?</td>
 	</tr>
