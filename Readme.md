@@ -13,9 +13,6 @@
 <body>
 <h1>Nexus-Z Discord Bot</h1>
 <br>
-This Project uses the rewrite version of discord.py as well as Python 3.8.2. Please keep this in mind when using the bot.	
-<br>
-<br>
 A Pokemon Statistics Discord bot for the use of calculating catch statistics for Max Raid Battles within Pokemon Sword and Shield (including Isle of Armor and The Crown Tundra)
 <br>
 
@@ -107,6 +104,16 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 		<td><code class="language-plaintext highlighter-rouge">[Leader/Type]</code></td>
 		<td>Shows the current Team Go Rocket shadow Pokemon in rotation.</td>
 	</tr>
+  <tr>
+		<td><code class="language-plaintext highlighter-rouge">%gohundo</code></td>
+		<td><code class="language-plaintext highlighter-rouge">[Pokemon]</code></td>
+		<td>Shows the CP of a hundred percent IV Pokemon.</td>
+	</tr>
+  <tr>
+		<td><code class="language-plaintext highlighter-rouge">%gopure</code></td>
+		<td><code class="language-plaintext highlighter-rouge">[Pokemon] [Atk_IV] [Def_IV] [HP_IV]</code></td>
+		<td>Shows the example before and after of purifying a shadow Pokemon.</td>
+	</tr>
 </tbody>
 </table>
 </p>
@@ -132,6 +139,11 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 		<td><code class="language-plaintext highlighter-rouge">%nexusz?</code></td>
 		<td><code class="language-plaintext highlighter-rouge"></code></td>
 		<td>Is this the real Nexus-Z?</td>
+	</tr>
+  	<tr>
+		<td><code class="language-plaintext highlighter-rouge">%freepokemon</code></td>
+		<td><code class="language-plaintext highlighter-rouge"></code></td>
+		<td>Free Pokemon?</td>
 	</tr>
 	<tr>
 		<td><code class="language-plaintext highlighter-rouge">%ping</code></td>
