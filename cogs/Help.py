@@ -141,7 +141,6 @@ class Help(commands.Cog):
         sum = 0
         for x in range (len(self.client.guilds)):
             sum += len(set(activeservers[x].members))
-            print(activeservers[x])
         Info = discord.Embed(title="Nexus-Z Support Server Invite", url="https://discord.com/oauth2/authorize?client_id=674716932720558101&permissions=10240&scope=bot", color=0x2962FF )
         Info.set_author(name="Sollisnexus#1429", url="https://sollisnexus.github.io/NexusZ/",icon_url="https://cdn.discordapp.com/avatars/177200577430683648/a_0f28b72333cf75baea7eca74c09089ae.gif")
         Info.add_field(name="Serving:", value="**"+str(len(self.client.guilds))+ "** Guilds\n**"+ str(sum) + "** Members", inline=True)
