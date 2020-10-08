@@ -119,7 +119,7 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 	</tr>
   <tr>
 		<td><code class="language-plaintext highlighter-rouge">%gotohome</code></td>
-		<td><code class="language-plaintext highlighter-rouge">[Pokemon] [Level] [Atk_IV] [Def_IV] [HP_IV]</code></td>
+		<td><code class="language-plaintext highlighter-rouge">[Pokemon] (form) [Level] [Atk_IV] [Def_IV] [HP_IV]</code></td>
 		<td>Shows a rough estimation of Pokemon transfer from Go to Home Stat Translation.</td>
 	</tr>
 </tbody>
