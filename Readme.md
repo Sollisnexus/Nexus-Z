@@ -63,7 +63,7 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 	</tr>
 <tr>
 		<td><code class="language-plaintext highlighter-rouge">%ball</code></td>
-		<td><code class="language-plaintext highlighter-rouge">(Form) [Pokemon] (Ball)</code></td>
+		<td><code class="language-plaintext highlighter-rouge">[Ball]</code></td>
 		<td>Shows a summary of a Poké-ball’s statistics and animations </td>
 	</tr>
 <tr>
@@ -116,6 +116,11 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 		<td><code class="language-plaintext highlighter-rouge">%gopure</code></td>
 		<td><code class="language-plaintext highlighter-rouge">[Pokemon] [Atk_IV] [Def_IV] [HP_IV]</code></td>
 		<td>Shows the example before and after of purifying a shadow Pokemon.</td>
+	</tr>
+  <tr>
+		<td><code class="language-plaintext highlighter-rouge">%gotohome</code></td>
+		<td><code class="language-plaintext highlighter-rouge">[Pokemon] [Level] [Atk_IV] [Def_IV] [HP_IV]</code></td>
+		<td>Shows a rough estimation of Pokemon transfer from Go to Home Stat Translation.</td>
 	</tr>
 </tbody>
 </table>
