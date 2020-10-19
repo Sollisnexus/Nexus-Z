@@ -176,7 +176,7 @@ I'll leave these for you to find out as to not spoil them (SFW)
 <img src="https://raw.githubusercontent.com/Sollisnexus/Sollisnexus.github.io/master/NexusZ/machampgmax.png" alt="Gmax Machamp">
 <br>
 <br>
-<code class="language-plaintext highlighter-rouge">%catch gmax machamp fastball</code>
+<code class="language-plaintext highlighter-rouge">%catch gmax machamp fast ball</code>
 <br>
 <img src="https://raw.githubusercontent.com/Sollisnexus/Sollisnexus.github.io/master/NexusZ/machampgmaxfastball.png" alt="Gmax Machamp Fastball">
 <br>
