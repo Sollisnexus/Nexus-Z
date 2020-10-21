@@ -217,7 +217,10 @@ I'll leave these for you to find out as to not spoil them (SFW)
 <br>
 	
 <h2>Support and Progress</h2>
-W.I.P
+
+For Updates and Reporting issues
+Support server can be found here: https://discord.gg/FqZ5KnT
+
 <br>
 <h2>Credits</h2>
 Thanks to everyone listed below as without them this bot could not have been possible:
