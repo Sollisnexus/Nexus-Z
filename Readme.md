@@ -34,6 +34,7 @@ A Pokemon Statistics Discord bot for the use of calculating catch statistics for
 <br>
 <h2>Commands</h2>
 	<li><code class="language-plaintext highlighter-rouge">%</code> is the default prefix, it can be changed using <code class="language-plaintext highlighter-rouge">%changeprefix [prefix]</code>or<code class="language-plaintext highlighter-rouge">[custom prefix]changeprefix [prefix]</code></li>
+	<li>Message deletion(my bots way of keeping clean) is <code class="language-plaintext highlighter-rouge">False</code> by default, it can be changed using <code class="language-plaintext highlighter-rouge">%changedelete (True/Yes/Y)/(False/No/N)</code>or<code class="language-plaintext highlighter-rouge">[custom prefix]changedelete (True/Yes/Y)/(False/No/N)</code></li>
     <li><code class="language-plaintext highlighter-rouge">[ ]</code> Indicate Required Fields</li>
 	<li><code class="language-plaintext highlighter-rouge">( )</code> Indicate Optional Fields</li>
 
