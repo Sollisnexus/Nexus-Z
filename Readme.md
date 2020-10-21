@@ -219,7 +219,8 @@ I'll leave these for you to find out as to not spoil them (SFW)
 <h2>Support and Progress</h2>
 
 For Updates and Reporting issues
-Support server can be found here: https://discord.gg/FqZ5KnT
+<br>
+The support server can be found here: https://discord.gg/FqZ5KnT
 
 <br>
 <h2>Credits</h2>
