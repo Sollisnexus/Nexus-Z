@@ -1,4 +1,4 @@
-﻿Name,Multiplier,Condition,Additional Effect
+Name,Multiplier,Condition,Additional Effect
 Beast,5x (0.1x otherwise),Pokemon is an Ultra Beast.,None.
 Cherish,1x,"Unobtainable, used only for exclusive event Pokemon.",None.
 Dive,3.5x (1x otherwise),If used on water-dwelling Pokemon .,None.
