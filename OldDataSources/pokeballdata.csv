@@ -1,0 +1,27 @@
+Name,Multiplier,Condition,Additional Effect
+Beast,5x (0.1x otherwise),Pokemon is an Ultra Beast.,None.
+Cherish,1x,"Unobtainable, used only for exclusive event Pokemon.",None.
+Dive,3.5x (1x otherwise),If used on water-dwelling Pokemon .,None.
+Dusk,3x (1x otherwise),Used at night or in a cave.,None.
+Dream,4x (1x otherwise), is asleep,None.
+Fast,4x (1x otherwise),Pokemon's base speed is greater than or equal to 100.,None.
+Friend,1x,None.,Sets caught Pokemon 's friendship to 200
+Great,1.5x,None.,None.
+Heal,1x,None.,"Fully restores a caught Pokemon's HP, PP, and status. "
+Heavy,"(-20, 0, 20, 30) ","Dependent on Pokemon's weight: (< 100kg, <200kg, <300kg, >300kg) respectively.",None.
+Level,"(1, 2, 3, 8)x","Dependent on level difference between opposing Pokemon and yours: 1x-Same Level, 2x-Higher but less then double, 4x-Double but less than quadurple, 8x-Quadurple or greater, respectfully.",None.
+Love,8x(1x otherwise),If used on a Pokemon of the same species but opposite gender of the player's Pokemon.,None.
+Lure,5x (1x otherwise),If used on a Pokemon encountered while fishing,None.
+Luxury,1x,None.,Doubles rate in which the contained Pokemon recieves friendship.
+Master,255x,None.,None.
+Moon,4x (1x otherwise),Pokemon species can evolve using a moon stone.,None.
+Nest,(1-4)x,Dependent on Pokemon's level: ((41 - Pokemon's level) / 10)x if Pokemon's is below level 30.,None.
+Net,3.5x (1x otherwise),Pokemon is either Bug or Water type.,None.
+Poke,1x,None.,None.
+Premier,1x,None.,None.
+Quick,5x (1x otherwise),If used on first of Battle.,None.
+Repeat,3.5x (1x otherwise),if used on a Pokemon that is registered in the player's Pokédex as caught.,None.
+Safari,1.5x,"Prior to Generation VIII, it could not be obtained, and was only usable within Safari Zones. ",None.
+Sports,1.5x,"Prior to Generation VIII, it could not be obtained, and was only usable during the Bug-Catching Contest. ",None.
+Timer,(1-4)x,Dependent on number of turns passed in battle: (1 + number of turns * 1229/4096)x with a max of 4x,None.
+Ultra,2x,None.,None.
