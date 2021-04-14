@@ -68,6 +68,16 @@
 <td>Displays an in-depth Pok&eacute;mon natures chart from Bulbapedia</td>
 </tr>
 <tr>
+<td><code>%sprite</code></td>
+<td></td>
+<td>Displays sprite of a Pok&eacute;mon (Home Version)</td>
+</tr>
+<tr>
+<td><code>%move</code></td>
+<td></td>
+<td>Displays information about the move</td>
+</tr>
+<tr>
 <td><code>&lt;&gt;help</code></td>
 <td></td>
 <td>Displays a help message with a table of commands</td>
