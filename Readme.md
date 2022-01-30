@@ -41,7 +41,7 @@ Features
 <li>
 Slash Commands available (Non-Slash Commands will be available until April 30th the latest)
 <br />
-If you want to access info about none slash commands ---> 
+If you want to access info about non-slash commands ---> 
 <a href="https://github.com/Sollisnexus/Nexus-Z/blob/master/Oldreadme.md"> Click Here
 </a>
 </li>
