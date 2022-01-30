@@ -46,7 +46,7 @@ If you want to access info about non-slash commands --->
 </a>
 </li>
 <li>
-Quick and easy access to the latest Pok&eacute;mon Data, such as Base Stats / Abilities / Den Locations And More!
+Quick and easy access to the latest Pok&eacute;mon Data, such as Base Stats / Abilities / Den Locations and More!
 </li>  
 <li>
 Accurately tuned catch rate calculator for Pok&eacute;mon encountered in Max Raid Battles and (W.I.P) Wild grass encounters.
