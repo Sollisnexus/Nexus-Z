@@ -2,7 +2,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-oxygen.svg)](https://forthebadge.com)
 <br>
-[<img src="https://img.shields.io/badge/discord.py-rewrite-blue.svg?style=flat-square">](https://github.com/Rapptz/discord.py/tree/rewrite)
+[<img src="https://img.shields.io/badge/py--cord-2.00b1-blue">](https://github.com/Pycord-Development/pycord)
 [<img src="https://img.shields.io/badge/python-3.8.2-brightgreen.svg?style=flat-square">](https://www.python.org/downloads/release/python-382/)
 [<img src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square">](https://github.com/Sollisnexus/Nexus-Z/blob/master/LICENSE)
 [![Discord Bots](https://top.gg/api/widget/status/674716932720558101.svg)](https://top.gg/bot/674716932720558101)
